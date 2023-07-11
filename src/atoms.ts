@@ -2,15 +2,22 @@ import { atom, selector } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist({
-  key: "toDos",
+  key: "toDosPersistAtom",
   storage: localStorage,
   converter: JSON,
 });
 const { persistAtom: categoryPersistAtom } = recoilPersist({
-  key: "categoryList",
+  key: "categoryPersistAtom",
   storage: localStorage,
   converter: JSON,
 });
+
+const { persistAtom: isDarkPersistAtom } = recoilPersist({
+  key: "isDarkPersistAtom",
+  storage: localStorage,
+  converter: JSON,
+});
+
 export interface IToDo {
   text: string;
   id: number;
@@ -21,6 +28,12 @@ export interface ICategory {
   id: number;
   name: string;
 }
+
+export const isDarkState = atom<boolean[]>({
+  key: "isDark",
+  default: [false],
+  effects_UNSTABLE: [isDarkPersistAtom],
+});
 
 export const toDoState = atom<IToDo[]>({
   key: "toDo",

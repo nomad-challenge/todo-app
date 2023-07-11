@@ -1,5 +1,9 @@
-import { createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import ToDoList from "./components/ToDoList";
+import { darkTheme, lightTheme } from "./theme";
+import { useRecoilValue } from "recoil";
+import { isDarkState } from "./atoms";
+import DarkButton from "./components/DarkButton";
 
 const GlobalResetStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400&display=swap');
@@ -68,11 +72,13 @@ a {
 }
 `;
 function App() {
+  const [isDark] = useRecoilValue(isDarkState);
   return (
-    <>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalResetStyle />
       <ToDoList />
-    </>
+      <DarkButton />
+    </ThemeProvider>
   );
 }
 

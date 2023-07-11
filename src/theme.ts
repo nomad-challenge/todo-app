@@ -7,3 +7,11 @@ export const darkTheme: DefaultTheme = {
   cardTextColor: "#2f3640",
   cardBgColor: "#fff",
 };
+
+export const lightTheme: DefaultTheme = {
+  bgColor: "#f5f6fa",
+  textColor: "#2f3640",
+  accentColor: "#9c88ff",
+  cardTextColor: "#2f3640",
+  cardBgColor: "#fff",
+};
