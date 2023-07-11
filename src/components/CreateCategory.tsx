@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 import { categoryListState } from "../atoms";
+import ErrorMessage from "./ErrorMessage";
 
 interface IForm {
   category: string;
@@ -29,7 +30,7 @@ const CreateCategory = () => {
         placeholder="write a category"
       />
       <button>➕</button>
-      <span>{errors.category?.message}</span>
+      <ErrorMessage message={errors.category?.message} />
     </form>
   );
 };

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { categoryState, toDoState } from "../atoms";
 import { useEffect } from "react";
+import ErrorMessage from "./ErrorMessage";
 
 interface IForm {
   toDo: string;
@@ -47,8 +48,8 @@ const CreateToDo = () => {
         placeholder="write a to do"
       />
       <button>➕</button>
-      <span>{errors.toDo?.message}</span>
-      <span>{errors.extraError?.message}</span>
+      <ErrorMessage message={errors.toDo?.message} />
+      <ErrorMessage message={errors.extraError?.message} />
     </form>
   );
 };

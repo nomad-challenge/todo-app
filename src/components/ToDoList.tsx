@@ -68,12 +68,6 @@ function ToDoList() {
           );
         })}
       </CategoryWrapper>
-      {/* <h2>{category}</h2>
-      <ul>
-        {toDos.map((toDo) => (
-          <ToDo key={toDo.id} {...toDo} />
-        ))}
-      </ul> */}
     </div>
   );
 }
