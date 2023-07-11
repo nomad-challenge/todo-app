@@ -4,7 +4,7 @@ import { isDarkState } from "../atoms";
 
 const Button = styled.button`
   position: absolute;
-  top: 0px;
+  top: 20px;
   right: 20px;
 
   background-color: transparent;

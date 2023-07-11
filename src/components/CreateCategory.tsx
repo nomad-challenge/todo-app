@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 import { categoryListState } from "../atoms";
 import ErrorMessage from "./ErrorMessage";
+import { InputBox } from "./InputBox";
+import { Form } from "./Form";
+import { PlusButton } from "./PlusButton";
 
 interface IForm {
   category: string;
@@ -21,17 +24,19 @@ const CreateCategory = () => {
     setValue("category", "");
   };
   return (
-    <form onSubmit={handleSubmit(onValid)}>
-      <input
-        {...register("category", {
-          required: "Category is required",
-          minLength: { value: 3, message: "min length is 3 charactors" },
-        })}
-        placeholder="write a category"
-      />
-      <button>➕</button>
+    <>
+      <Form onSubmit={handleSubmit(onValid)}>
+        <InputBox
+          {...register("category", {
+            required: "Category is required",
+            minLength: { value: 3, message: "min length is 3 charactors" },
+          })}
+          placeholder="write a category"
+        />
+        <PlusButton>➕</PlusButton>
+      </Form>
       <ErrorMessage message={errors.category?.message} />
-    </form>
+    </>
   );
 };
 

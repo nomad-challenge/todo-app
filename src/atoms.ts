@@ -61,6 +61,7 @@ export const toDoSelector = selector({
         [category.name]: toDos.filter(
           (toDo) => toDo.categoryId === category.id
         ),
+        categoryId: category.id,
       };
     });
   },
